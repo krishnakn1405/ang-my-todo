@@ -1,0 +1,184 @@
+<!-- NavBar -->
+<section class="navbar" #navbar>
+
+    <div class="navbar-left">
+        <i class="fa-solid fa-bars" (click)="navMenuToggle()"></i>
+    </div>
+
+    <div class="navbar-center">
+        <input type="text" name="search" placeholder="Search notes..." (keyup)="notesSearch($event)" />
+    </div>
+
+    <div class="navbar-right">
+        <i class="fa-solid fa-table-columns" #fullWidthIcon (click)="fullNotes()"></i>
+    </div>
+
+</section>
+
+<!-- Selected Navbar -->
+<section class="selected-navbar" #selectedNavbar>
+
+    <div class="selected-navbar-left">
+
+        <div class="snl-left">
+            <i class="fa-solid fa-xmark" (click)="closeSelected()"></i>
+        </div>
+        <div class="snl-right">
+            <p #totalSelect></p>
+        </div>
+
+    </div>
+    <div class="selected-navbar-right">
+
+        <i class="fa-solid fa-thumbtack" (click)="pinNotes()"></i>
+        <i class="fa-solid fa-box-archive" (click)="archiveNotes()"></i>
+        <i class="fa-solid fa-trash" (click)="deleteNotes()"></i>
+
+    </div>
+
+</section>
+
+<!-- NavMenu -->
+<section class="nav-menu" #navMenuToggleId>
+
+    <div class="nav-menu-left">
+
+        <img src="assets/mytodo.png" alt="mytodo" (click)="navMenuToggle()" />
+
+    </div>
+    <div class="nav-menu-right">
+        <ul>
+            <li routerLink="/" class="active"><i class="fa-solid fa-note-sticky"></i>Notes</li>
+            <li routerLink="/archive"><i class="fa-solid fa-box-archive"></i>Archive</li>
+            <li routerLink="/delete"><i class="fa-solid fa-trash"></i>Deleted</li>
+            <li routerLink="/about"><i class="fa-solid fa-address-card"></i>About</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- Portable Alert -->
+<section class="portable-alert" #alertModel>
+
+</section>
+
+<div #NavSpace>
+
+</div>
+
+<div *ngIf="searchStatus; else searchElseBlock">
+
+    <!-- Notes Contents -->
+    <section class="notes-contents" #searchNotesContents>
+
+        <div class="notes-contents-left">
+            <h2>Search</h2>
+        </div>
+        <div class="notes-contents-right">
+
+            <div class="no-description" *ngIf="search.length=== 0; else elseBlockofSearch">
+                <p>No notes</p>
+            </div>
+
+            <ng-template #elseBlockofSearch>
+                <div class="modal-parent" *ngFor="let note of search  | descending ">
+
+                    <div class="notes-modal" *ngIf="note.delete== false"
+                        [routerLink]="linkClick? 'single-note' : null" [queryParams]="{id: note.id}"
+                        [style.width]="fullWidth ? '92vw' : '45vw'" (touchstart)="onTouchStart(note.id)"
+                        (touchend)="onTouchEnd()" id="notes{{ note.id }}">
+
+                        <div class="notes-modal-left">
+                            <h3>{{ note.title }}</h3>
+                        </div>
+                        <div class="notes-modal-right">
+                            <p>{{ note.description }}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </ng-template>
+
+        </div>
+
+    </section>
+</div>
+
+<ng-template #searchElseBlock>
+
+    <!-- Pin Notes Contents -->
+    <section class="notes-contents" *ngIf="pinned.length > 0;" #pinNotesContents>
+
+        <div class="notes-contents-left">
+            <h2>Pinned</h2>
+        </div>
+        <div class="notes-contents-right">
+
+            <div class="modal-parent" *ngFor="let note of pinned">
+
+                <div class="notes-modal" *ngIf="note.delete== false && note.archive== false && note.pin== true"
+                    [routerLink]="linkClick? 'single-note' : null" [queryParams]="{id: note.id}"
+                    [style.width]="fullWidth ? '92vw' : '45vw'" (touchstart)="onTouchStart(note.id)"
+                    (touchend)="onTouchEnd()" id="notes{{ note.id }}">
+
+                    <div class="notes-modal-left">
+                        <h3>{{ note.title }}</h3>
+                    </div>
+                    <div class="notes-modal-right">
+                        <p>{{ note.description }}</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!-- Notes Contents -->
+    <section class="notes-contents" #notesContents>
+
+        <div class="notes-contents-left">
+            <h2>Others</h2>
+        </div>
+        <div class="notes-contents-right">
+
+            <div class="no-description" *ngIf="realNotes.length=== 0; else elseBlock">
+                <p>No notes</p>
+            </div>
+
+            <ng-template #elseBlock>
+                <div class="modal-parent" *ngFor="let note of realNotes  | descending ">
+
+                    <div class="notes-modal" *ngIf="note.delete== false && note.archive== false && note.pin== false"
+                        [routerLink]="linkClick? 'single-note' : null" [queryParams]="{id: note.id}"
+                        [style.width]="fullWidth ? '92vw' : '45vw'" (touchstart)="onTouchStart(note.id)"
+                        (touchend)="onTouchEnd()" id="notes{{ note.id }}">
+
+                        <div class="notes-modal-left">
+                            <h3>{{ note.title }}</h3>
+                        </div>
+                        <div class="notes-modal-right">
+                            <p>{{ note.description }}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </ng-template>
+
+        </div>
+
+    </section>
+
+</ng-template>
+
+<!-- New Notes -->
+<section class="new-notes" routerLink="single-note" [queryParams]="{id: this.id}">
+    <div>
+        <i class="fa-solid fa-plus"></i>
+    </div>
+</section>

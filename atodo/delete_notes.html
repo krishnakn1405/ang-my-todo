@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      
+    <title>Deleted Notes - MyTodo</title>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Style Css -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+  </head>
+<body>
+
+<!-- Delete Notes Navbar -->
+<navbar class="delete-notes-navbar" id="navbar">
+
+<div class="delete-notes-navbar-left">
+    <i class="fa-solid fa-bars" onclick="navMenuToggle()"></i>
+</div>
+
+<div class="delete-notes-navbar-center">
+    <h2>Deleted</h2>
+</div>
+
+<div class="delete-notes-navbar-right">
+    <i class="fa-solid fa-trash"></i>
+</div>
+
+</navbar>
+
+<!-- Selected Navbar -->
+<section class="selected-navbar" id="selectedNavbar">
+
+<div class="selected-navbar-left">
+
+<div class="snl-left">
+    <i class="fa-solid fa-xmark" onclick="closeSelected()"></i>
+</div>
+<div class="snl-right">
+    <p id="totalSelect"></p>
+</div>
+
+</div>
+<div class="selected-navbar-right deleted-selected-navbar-right">
+
+<i class="fa-solid fa-trash-arrow-up" onclick="restoreNotes()"></i>
+<i class="fa-solid fa-trash" onclick="deleteNotes()"></i>
+
+</div>
+
+</section>
+
+<!-- NavMenu -->
+<section class="nav-menu" id="navMenuToggle">
+
+<div class="nav-menu-left">
+
+<img src="images/mytodo.png" alt="mytodo" onclick="navMenuToggle()" />
+
+</div>
+<div class="nav-menu-right">
+    <ul>
+        <li><a href="index.html"><i class="fa-solid fa-note-sticky"></i>Notes</a></li>
+        <li><a href="archive_notes.html"><i class="fa-solid fa-box-archive"></i>Archive</a></li>
+        <li class="active"><a href="delete_notes.html"><i class="fa-solid fa-trash"></i>Deleted</a></li>
+        <li><a href="settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-address-card"></i>About</a></li>
+    </ul>
+</div>
+
+</section>
+
+<!-- Portable Alert -->
+<section class="portable-alert" id="alertModel">
+
+</section>
+
+<!-- Notes Contents -->
+<section class="notes-contents mt-15" id="notesContents">
+
+<div class="notes-contents-left">
+    
+</div>
+<div class="notes-contents-right">
+
+
+<!-- No Description -->
+<div class="no-description">
+    <p>No items</p>
+</div>
+
+
+<div class="notes-modal" ontouchstart="addBorder(1)" id="notes1">
+
+<div class="notes-modal-left">
+    <h3>Chapter 14: Rechecking the story.</h3>
+</div>
+<div class="notes-modal-right">
+    <p>
+
+Chapter 14: Rechecking the story.
+
+ಲೇಖಕರು ಕೆಲವು ತಿಂಗಳ ನಂತರ ನೀವು ಆರಿಸಿಕೊಂಡಿರುವ ಕಂಪನಿಗಳನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಲು ತಿಳಿಸುತ್ತಾರೆ.  ಅಂದರೆ ನೀವು ಯೋಚಿಸಿದ ರೀತಿಯಲ್ಲಿ ಅದು ನಿರ್ವಹಿಸುತ್ತಿದೆಯೇ ಎಂದು ನೋಡಬೇಕು. ಉದಾಹರಣೆಗೆ ಆ ಕಂಪನಿಯ ಮಾರಾಟ ಹೆಚ್ಚಿದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ, ನೀವು ಆಯ್ಕೆ ಮಾಡಿರೋ ಕಂಪನಿ, ವೇಗವಾಗಿ ಬೆಳೆಯುವುದಾದರೆ(fast grower), ಮುಂಬರುವ ಸಮಯದಲ್ಲಿ ಅದು ಬೆಳವಣಿಗೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿದೆಯೇ ಎಂಬುದನ್ನು ನೋಡಬೇಕು.
+
+Chapter 15: The final checklist.
+    </p>
+</div>
+
+</div>
+
+<div class="notes-modal" ontouchstart="addBorder(2)" id="notes2">
+
+<div class="notes-modal-left">
+    <h3>Chapter 14: Rechecking the story.</h3>
+</div>
+<div class="notes-modal-right">
+    <p>
+
+Chapter 14: Rechecking the story.
+
+ಲೇಖಕರು ಕೆಲವು ತಿಂಗಳ ನಂತರ ನೀವು ಆರಿಸಿಕೊಂಡಿರುವ ಕಂಪನಿಗಳನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಲು ತಿಳಿಸುತ್ತಾರೆ.  ಅಂದರೆ ನೀವು ಯೋಚಿಸಿದ ರೀತಿಯಲ್ಲಿ ಅದು ನಿರ್ವಹಿಸುತ್ತಿದೆಯೇ ಎಂದು ನೋಡಬೇಕು. ಉದಾಹರಣೆಗೆ ಆ ಕಂಪನಿಯ ಮಾರಾಟ ಹೆಚ್ಚಿದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ, ನೀವು ಆಯ್ಕೆ ಮಾಡಿರೋ ಕಂಪನಿ, ವೇಗವಾಗಿ ಬೆಳೆಯುವುದಾದರೆ(fast grower), ಮುಂಬರುವ ಸಮಯದಲ್ಲಿ ಅದು ಬೆಳವಣಿಗೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿದೆಯೇ ಎಂಬುದನ್ನು ನೋಡಬೇಕು.
+
+Chapter 15: The final checklist.
+    </p>
+</div>
+
+</div>
+
+<div class="notes-modal" ontouchstart="addBorder(3)" id="notes3">
+
+<div class="notes-modal-left">
+    <h3>Chapter 14: Rechecking the story.</h3>
+</div>
+<div class="notes-modal-right">
+    <p>
+
+Chapter 14: Rechecking the story.
+
+ಲೇಖಕರು ಕೆಲವು ತಿಂಗಳ ನಂತರ ನೀವು ಆರಿಸಿಕೊಂಡಿರುವ ಕಂಪನಿಗಳನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಲು ತಿಳಿಸುತ್ತಾರೆ.  ಅಂದರೆ ನೀವು ಯೋಚಿಸಿದ ರೀತಿಯಲ್ಲಿ ಅದು ನಿರ್ವಹಿಸುತ್ತಿದೆಯೇ ಎಂದು ನೋಡಬೇಕು. ಉದಾಹರಣೆಗೆ ಆ ಕಂಪನಿಯ ಮಾರಾಟ ಹೆಚ್ಚಿದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ, ನೀವು ಆಯ್ಕೆ ಮಾಡಿರೋ ಕಂಪನಿ, ವೇಗವಾಗಿ ಬೆಳೆಯುವುದಾದರೆ(fast grower), ಮುಂಬರುವ ಸಮಯದಲ್ಲಿ ಅದು ಬೆಳವಣಿಗೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿದೆಯೇ ಎಂಬುದನ್ನು ನೋಡಬೇಕು.
+
+Chapter 15: The final checklist.
+    </p>
+</div>
+
+</div>
+
+<div class="notes-modal" ontouchstart="addBorder(4)" id="notes4">
+
+<div class="notes-modal-left">
+    <h3>Chapter 14: Rechecking the story.</h3>
+</div>
+<div class="notes-modal-right">
+    <p>
+
+Chapter 14: Rechecking the story.
+
+ಲೇಖಕರು ಕೆಲವು ತಿಂಗಳ ನಂತರ ನೀವು ಆರಿಸಿಕೊಂಡಿರುವ ಕಂಪನಿಗಳನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಲು ತಿಳಿಸುತ್ತಾರೆ.  ಅಂದರೆ ನೀವು ಯೋಚಿಸಿದ ರೀತಿಯಲ್ಲಿ ಅದು ನಿರ್ವಹಿಸುತ್ತಿದೆಯೇ ಎಂದು ನೋಡಬೇಕು. ಉದಾಹರಣೆಗೆ ಆ ಕಂಪನಿಯ ಮಾರಾಟ ಹೆಚ್ಚಿದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ, ನೀವು ಆಯ್ಕೆ ಮಾಡಿರೋ ಕಂಪನಿ, ವೇಗವಾಗಿ ಬೆಳೆಯುವುದಾದರೆ(fast grower), ಮುಂಬರುವ ಸಮಯದಲ್ಲಿ ಅದು ಬೆಳವಣಿಗೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿದೆಯೇ ಎಂಬುದನ್ನು ನೋಡಬೇಕು.
+
+Chapter 15: The final checklist.
+    </p>
+</div>
+
+</div>
+
+<div class="notes-modal" ontouchstart="addBorder(5)" id="notes5">
+
+<div class="notes-modal-left">
+    <h3>Chapter 14: Rechecking the story.</h3>
+</div>
+<div class="notes-modal-right">
+    <p>
+
+Chapter 14: Rechecking the story.
+
+ಲೇಖಕರು ಕೆಲವು ತಿಂಗಳ ನಂತರ ನೀವು ಆರಿಸಿಕೊಂಡಿರುವ ಕಂಪನಿಗಳನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಲು ತಿಳಿಸುತ್ತಾರೆ.  ಅಂದರೆ ನೀವು ಯೋಚಿಸಿದ ರೀತಿಯಲ್ಲಿ ಅದು ನಿರ್ವಹಿಸುತ್ತಿದೆಯೇ ಎಂದು ನೋಡಬೇಕು. ಉದಾಹರಣೆಗೆ ಆ ಕಂಪನಿಯ ಮಾರಾಟ ಹೆಚ್ಚಿದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ, ನೀವು ಆಯ್ಕೆ ಮಾಡಿರೋ ಕಂಪನಿ, ವೇಗವಾಗಿ ಬೆಳೆಯುವುದಾದರೆ(fast grower), ಮುಂಬರುವ ಸಮಯದಲ್ಲಿ ಅದು ಬೆಳವಣಿಗೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿದೆಯೇ ಎಂಬುದನ್ನು ನೋಡಬೇಕು.
+
+Chapter 15: The final checklist.
+    </p>
+</div>
+
+</div>
+
+<div class="notes-modal" ontouchstart="addBorder(6)" id="notes6">
+
+<div class="notes-modal-left">
+    <h3>Chapter 14: Rechecking the story.</h3>
+</div>
+<div class="notes-modal-right">
+    <p>
+
+Chapter 14: Rechecking the story.
+
+ಲೇಖಕರು ಕೆಲವು ತಿಂಗಳ ನಂತರ ನೀವು ಆರಿಸಿಕೊಂಡಿರುವ ಕಂಪನಿಗಳನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಲು ತಿಳಿಸುತ್ತಾರೆ.  ಅಂದರೆ ನೀವು ಯೋಚಿಸಿದ ರೀತಿಯಲ್ಲಿ ಅದು ನಿರ್ವಹಿಸುತ್ತಿದೆಯೇ ಎಂದು ನೋಡಬೇಕು. ಉದಾಹರಣೆಗೆ ಆ ಕಂಪನಿಯ ಮಾರಾಟ ಹೆಚ್ಚಿದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ, ನೀವು ಆಯ್ಕೆ ಮಾಡಿರೋ ಕಂಪನಿ, ವೇಗವಾಗಿ ಬೆಳೆಯುವುದಾದರೆ(fast grower), ಮುಂಬರುವ ಸಮಯದಲ್ಲಿ ಅದು ಬೆಳವಣಿಗೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿದೆಯೇ ಎಂಬುದನ್ನು ನೋಡಬೇಕು.
+
+Chapter 15: The final checklist.
+    </p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Main Js -->
+<script src="main.js"></script>
+
+<script>
+// navMenuToggle 
+function navMenuToggle(){
+  let navMenuToggle= document.getElementById("navMenuToggle");
+  if(navMenuToggle.style.width=="0vw"){
+    navMenuToggle.style.opacity= "1";
+    navMenuToggle.style.width="90vw";
+  }else{
+    navMenuToggle.style.opacity= "0";
+    navMenuToggle.style.width="0vw";
+  }
+}
+
+</script>
+
+<script>
+// Persistent hover effect
+let listItems = document.querySelectorAll('#navMenuToggle li');
+
+listItems.forEach(function(li) {
+  li.addEventListener('touchstart', function() {
+    li.classList.add('hovered');
+  });
+
+  li.addEventListener('touchend', function() {
+    li.classList.remove('hovered');
+  });
+});
+
+</script>
+
+<script>
+// Select Notes
+let selectObject= {};
+let selectedMode= false;
+let holdTimeout;
+let touched = true;
+
+function closeSelected(){
+    
+for(const key in selectObject){
+    let notesId= selectObject[key];
+    let modal= document.getElementById(notesId);
+    modal.style.border = '';
+    delete selectObject[key];
+}
+    selectedMode= false;
+    touched= true;
+    selectedNavbar.style.opacity= "0";
+    selectedNavbar.style.height="0vw";
+}
+
+function addBorder(id){
+
+let notes= String("notes"+id);
+let modal= document.getElementById(notes);
+
+let selectedNavbar= document.getElementById("selectedNavbar");
+
+if(selectedMode){
+
+if(selectObject.hasOwnProperty(id))
+{
+    delete selectObject[id];
+    modal.style.border = '';
+}else{
+    selectObject[id]= notes;
+    modal.style.border = '3px solid #00668c';
+}
+
+document.getElementById("totalSelect").innerHTML= Object.keys(selectObject).length
+
+let keys= Object.keys(selectObject);
+
+if(keys.length == 0)
+{
+    selectedMode= false;
+    touched= true;
+    selectedNavbar.style.opacity= "0";
+    selectedNavbar.style.height="0vw";
+}
+
+}else{
+
+let holdTimeout;
+
+modal.addEventListener('touchstart', function () {
+
+holdTimeout= setTimeout(function () {
+
+if(touched){
+    selectObject[id]= notes;
+    modal.style.border = '3px solid #00668c';
+    selectedMode= true;
+    touched= false;
+    selectedNavbar.style.opacity= "1";
+    selectedNavbar.style.height="18vw";
+    document.getElementById("totalSelect").innerHTML= Object.keys(selectObject).length
+}
+
+}, 500);
+
+
+});
+
+
+modal.addEventListener('touchend', function () {
+    clearTimeout(holdTimeout);
+});
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

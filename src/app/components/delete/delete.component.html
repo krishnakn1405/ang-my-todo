@@ -1,0 +1,98 @@
+<!-- Delete Notes Navbar -->
+<section class="delete-notes-navbar" #navbar>
+
+    <div class="delete-notes-navbar-left">
+        <i class="fa-solid fa-bars" (click)="navMenuToggle()"></i>
+    </div>
+
+    <div class="delete-notes-navbar-center">
+        <h2>Deleted</h2>
+    </div>
+
+    <div class="delete-notes-navbar-right">
+        <i class="fa-solid fa-trash" (click)="emptyBin()"></i>
+    </div>
+
+</section>
+
+<!-- Selected Navbar -->
+<section class="selected-navbar" #selectedNavbar>
+
+    <div class="selected-navbar-left">
+
+        <div class="snl-left">
+            <i class="fa-solid fa-xmark" (click)="closeSelected()"></i>
+        </div>
+        <div class="snl-right">
+            <p #totalSelect></p>
+        </div>
+
+    </div>
+    <div class="selected-navbar-right deleted-selected-navbar-right">
+
+        <i class="fa-solid fa-trash-arrow-up" (click)="restoreNotes()"></i>
+        <i class="fa-solid fa-trash" (click)="deleteNotes()"></i>
+
+    </div>
+
+</section>
+
+<!-- NavMenu -->
+<section class="nav-menu" #navMenuToggleId>
+
+    <div class="nav-menu-left">
+
+        <img src="assets/mytodo.png" alt="mytodo" (click)="navMenuToggle()" />
+
+    </div>
+    <div class="nav-menu-right">
+        <ul>
+            <li routerLink="/"><i class="fa-solid fa-note-sticky"></i>Notes</li>
+            <li routerLink="/archive"><i class="fa-solid fa-box-archive"></i>Archive</li>
+            <li routerLink="/delete" class="active"><i class="fa-solid fa-trash"></i>Deleted</li>
+            <li routerLink="/about"><i class="fa-solid fa-address-card"></i>About</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- Portable Alert -->
+<section class="portable-alert" #alertModel>
+
+</section>
+
+<!-- Notes Contents -->
+<section class="notes-contents mt-12" #notesContents>
+
+    <div class="notes-contents-left">
+
+    </div>
+    <div class="notes-contents-right">
+
+        <div class="no-description" *ngIf="deleted.length=== 0; else elseBlock">
+            <p>Bin is empty</p>
+        </div>
+
+        <ng-template #elseBlock>
+            <div class="modal-parent" *ngFor="let note of deleted  | descending ">
+
+                <div class="notes-modal" *ngIf="note.delete== true"
+                    [routerLink]="linkClick? '../single-note' : null" [queryParams]="{id: note.id}"
+                    [style.width]="fullWidth ? '92vw' : '45vw'" (touchstart)="onTouchStart(note.id)"
+                    (touchend)="onTouchEnd()" id="notes{{ note.id }}">
+
+                    <div class="notes-modal-left">
+                        <h3>{{ note.title }}</h3>
+                    </div>
+                    <div class="notes-modal-right">
+                        <p>{{ note.description }}</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </ng-template>
+
+    </div>
+
+</section>

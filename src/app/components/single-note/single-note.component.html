@@ -1,0 +1,37 @@
+<!-- Single Notes Navbar -->
+<section class="single-notes-navbar" #singleNotesNavbar>
+
+    <div class="single-notes-navbar-left">
+
+        <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+
+    </div>
+    <div class="single-notes-navbar-right">
+
+        <i class="fa-solid fa-thumbtack" (click)="pinNotes()"></i>
+        <i class="fa-solid fa-box-archive" (click)="archiveNotes()"></i>
+        <i class="fa-solid fa-trash" (click)="deleteNotes()"></i>
+
+    </div>
+
+</section>
+
+<!-- Portable Alert -->
+<section class="portable-alert" #alertModel>
+
+</section>
+
+<!-- Notes Area -->
+<section class="notes-area">
+    <div class="notes-area-left">
+
+       <input type="text" placeholder="Title" [value]= title name="title" (change)="notesTitleUpdate($event)" (keyup)="notesTitleUpdate($event)"/>
+
+    </div>
+    <div class="notes-area-right">
+
+        <textarea name="description" placeholder="Note" id="myTextarea" (change)="notesDescriptionUpdate($event)"  (keyup)="notesDescriptionUpdate($event)">{{ description }}</textarea>
+
+    </div>
+
+</section>

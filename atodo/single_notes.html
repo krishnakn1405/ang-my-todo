@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      
+    <title>Add Notes - MyTodo</title>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Style Css -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+  </head>
+<body>
+
+<!-- Single Notes Navbar -->
+<section class="single-notes-navbar" id="singleNotesNavbar">
+
+<div class="single-notes-navbar-left">
+
+<i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+
+</div>
+<div class="single-notes-navbar-right">
+
+<i class="fa-solid fa-thumbtack" onclick="pinNotes()"></i>
+<i class="fa-solid fa-box-archive" onclick="archiveNotes()"></i>
+<i class="fa-solid fa-trash" onclick="deleteNotes()"></i>
+
+</div>
+
+</section>
+
+<!-- Portable Alert -->
+<section class="portable-alert" id="alertModel">
+
+</section>
+
+<!-- Notes Area -->
+<section class="notes-area">
+
+<div class="notes-area-left">
+
+<h2 contentEditable="true" id="editableHeading" onfocus="clearPlaceholder()" onblur="restorePlaceholder()">Title</h2>
+
+</div>
+<div class="notes-area-right">
+
+<textarea name="description" placeholder="Note" id="myTextarea"></textarea>
+
+</div>
+
+</section>
+
+<!-- Main Js -->
+<script src="main.js"></script>
+
+<script>
+// Notes Functions
+function pinNotes(){
+
+document.getElementById("alertModel").style.opacity= 1;
+document.getElementById("alertModel").innerHTML="<p><strong>Alert: </strong>Note is pinned</p>";
+setTimeout(myAlertModel, 2000);
+
+}
+
+function archiveNotes(){
+
+document.getElementById("alertModel").style.opacity= 1;
+document.getElementById("alertModel").innerHTML="<p><strong>Alert: </strong>Note is archived</p>";
+setTimeout(myAlertModel, 2000);
+
+}
+
+function deleteNotes(){
+
+document.getElementById("alertModel").style.opacity= 1;
+document.getElementById("alertModel").innerHTML="<p><strong>Alert: </strong>Note moved to bin</p>";
+setTimeout(myAlertModel, 2000);
+
+}
+</script>
+
+
+<script>
+// Editable H2 
+const heading = document.getElementById("editableHeading");
+
+heading.addEventListener("input", function() {
+    editedContent = heading.textContent;
+});
+
+function clearPlaceholder() {
+  const heading = document.getElementById("editableHeading");
+  if (heading.textContent === "Title") {
+    heading.textContent= "";
+    heading.style.color= '#1a1b1f';
+  }
+}
+
+function restorePlaceholder() {
+  const heading = document.getElementById("editableHeading");
+  if (heading.textContent === "") {
+    heading.textContent= "Title";
+    heading.style.color= '#a6a7a9';
+  }
+}
+
+
+</script>
+
+</body>
+</html>

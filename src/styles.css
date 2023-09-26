@@ -1,0 +1,675 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global Styles */
+.mt-18 {
+    margin-top: 18vw;
+}
+
+.mt-15 {
+    margin-top: 15vw;
+}
+
+.mt-12 {
+    margin-top: 12vw;
+}
+
+/* NavBar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10vw;
+    margin: 1vw 2vw;
+    background-color: #e9f0f6;
+    padding: 4vw 1vw;
+    position: relative;
+    transition: position 1s ease;
+}
+
+.navbar.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 96%;
+    z-index: 100;
+}
+
+.navbar-left {
+    width: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-left .fa-bars {
+    font-size: 20px;
+    font-weight: 600;
+    color: #40474d;
+}
+
+.navbar-center {
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-center input {
+    padding: 1vw 2vw 1vw 1vw;
+    border: none;
+    outline-width: 0;
+    background: transparent;
+    font-size: 16px;
+    color: #40474d;
+}
+
+.navbar-right {
+    width: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-right .fa-table-columns {
+    font-size: 20px;
+    font-weight: 600;
+    color: #40474d;
+}
+
+/* Notes Contents */
+.notes-contents {
+    padding: 1vw;
+}
+
+.notes-contents-left {
+    padding: 5vw 0 2vw 8vw;
+}
+
+.notes-contents-left h2 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.notes-contents-right {
+    padding: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.notes-modal {
+    border: 1px solid #c0c7cd;
+    border-radius: 3vw;
+    padding: 3vw;
+    margin: 1vw;
+    width: 45vw;
+    user-select: none;
+}
+
+.notes-modal-left {
+    padding: 1vw 0;
+}
+
+.notes-modal-left h3 {
+    font-size: 15px;
+    color: #5c5d5f;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.notes-modal-right {
+    padding: 1.5vw 0;
+}
+
+.notes-modal-right p {
+    font-size: 15px;
+    color: #5c5d5f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
+
+/* Selected Navbar */
+.selected-navbar {
+    display: flex;
+    background-color: #e9f0f6;
+    padding: 4vw 1vw;
+    width: 100%;
+    opacity: 0;
+    height: 0vw;
+    z-index: 103;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.selected-navbar-left {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+.selected-navbar-left .snl-left {
+    padding: 0 4vw;
+}
+
+.selected-navbar-left .snl-left i {
+    font-size: 24px;
+    font-weight: 600;
+    color: #40474d;
+}
+
+.selected-navbar-left .snl-right {
+    padding: 0 2vw;
+}
+
+.selected-navbar-left .snl-right p {
+    font-size: 22px;
+    font-weight: 500;
+    color: #40474d;
+}
+
+.selected-navbar-right {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 1vw;
+}
+
+.selected-navbar-right i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #40474d;
+}
+
+/* NavMenu */
+.nav-menu {
+    width: 0vw;
+    opacity: 0;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 0 0 50vw #000;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    padding: 4vw;
+    user-select: none;
+    overflow-y: scroll;
+}
+
+.nav-menu-left {
+    padding: 1vw;
+}
+
+.nav-menu-left img {
+    width: 100px;
+}
+
+.nav-menu-right {
+    padding: 3vw 0;
+}
+
+.nav-menu-right ul li {
+    list-style-type: none;
+    color: #0a1e29;
+    padding: 4vw;
+    border-radius: 10vw;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.nav-menu-right ul li a {
+    color: #0a1e29;
+    text-decoration: none;
+}
+
+.nav-menu-right ul li:hover {
+    background-color: #e2edf3;
+}
+
+.hovered {
+    background-color: #e2edf3;
+}
+
+.nav-menu-right ul li.active {
+    background-color: #d2e5f4;
+    color: #30718d;
+}
+
+.nav-menu-right ul li i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* New Notes */
+.new-notes {
+    position: fixed;
+    bottom: 6vw;
+    right: 6vw;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9f0f6;
+    box-shadow: 0 0 2px;
+}
+
+.new-notes i {
+    font-size: 22px;
+    color: #40474d;
+}
+
+/* Portable Alert */
+.portable-alert {
+    opacity: 0;
+    color: #ffffff;
+    background-color: #2d3134;
+    font-weight: 400;
+    width: 96%;
+    z-index: 105;
+    padding: 4vw;
+    border-radius: 1vw;
+    margin: 0 2vw;
+    position: fixed;
+    bottom: 26vw;
+    transition: 0.5s;
+}
+
+/* Single Notes Navbar */
+.single-notes-navbar {
+    display: flex;
+    background-color: #fcfcfe;
+    padding: 4vw 1vw;
+    width: 100%;
+    opacity: 1;
+    height: 18vw;
+    z-index: 103;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.single-notes-navbar-left {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+.single-notes-navbar-left i {
+    margin-left: 3vw;
+    font-size: 22px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.single-notes-navbar-right {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 1vw;
+}
+
+.single-notes-navbar-right i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+/* Notes Area */
+.notes-area {
+    margin-top: 18vw;
+    padding: 4vw 0 0 0;
+    background-color: #fcfcfe;
+}
+
+.notes-area-left input {
+    padding: 3vw 3vw 3vw 4vw;
+    background-color: #fcfcfe;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 500;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.notes-area-right textarea {
+    padding: 1vw 3vw 1vw 4vw;
+    background-color: #fcfcfe;
+    font-size: 17px;
+    width: 100%;
+    height: 100vh;
+    border: none;
+    outline: none;
+}
+
+.notes-area-right textarea::placeholder {
+    color: #a6a7a9;
+}
+
+/* Delete Notes Navbar */
+.delete-notes-navbar {
+    display: flex;
+    background-color: #fcfcfe;
+    padding: 4vw 1vw;
+    width: 100%;
+    opacity: 1;
+    height: 18vw;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.delete-notes-navbar-left {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-notes-navbar-left i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.delete-notes-navbar-center {
+    width: 65%;
+    padding: 0 2vw;
+    display: flex;
+    align-items: center;
+}
+
+.delete-notes-navbar-center h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5f6064;
+}
+
+.delete-notes-navbar-right {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-notes-navbar-right i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.deleted-selected-navbar-right {
+    justify-content: flex-end;
+}
+
+.deleted-selected-navbar-right i {
+    margin: 0 5vw;
+}
+
+/* No Description */
+.no-description {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 9vw 0;
+}
+
+.no-description p {
+    color: #5f6064;
+    user-select: none;
+}
+
+/* Archive Notes Navbar */
+.archive-notes-navbar {
+    display: flex;
+    background-color: #fcfcfe;
+    padding: 4vw 1vw;
+    width: 100%;
+    opacity: 1;
+    height: 18vw;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.archive-notes-navbar-left {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.archive-notes-navbar-left i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.archive-notes-navbar-center {
+    width: 65%;
+    padding: 0 2vw;
+    display: flex;
+    align-items: center;
+}
+
+.archive-notes-navbar-center h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5f6064;
+}
+
+.archive-notes-navbar-right {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.archive-notes-navbar-right i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.archived-selected-navbar-right {
+    justify-content: flex-end;
+}
+
+.archived-selected-navbar-right i {
+    margin: 0 5vw;
+}
+
+/* Settings Notes Navbar */
+.settings-notes-navbar {
+    display: flex;
+    background-color: #fcfcfe;
+    padding: 4vw 1vw;
+    width: 100%;
+    opacity: 1;
+    height: 18vw;
+    z-index: 103;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.settings-notes-navbar-left {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-notes-navbar-left i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.settings-notes-navbar-right {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.settings-notes-navbar-right h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5f6064;
+}
+
+/* Settings Options */
+.settings-options {
+    padding: 3vw;
+}
+
+.settings-options-left {
+    margin-top: 2vw;
+    padding: 1vw;
+}
+
+.settings-options-left h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.settings-options-right {
+    padding: 1vw;
+    margin: 3vw 0;
+}
+
+.sol-modal {
+    width: 100%;
+    display: flex;
+}
+
+.sol-modal input {
+    margin-left: 15px;
+}
+
+/* About Notes Navbar */
+.about-notes-navbar {
+    display: flex;
+    background-color: #fcfcfe;
+    padding: 4vw 1vw;
+    width: 100%;
+    opacity: 1;
+    height: 18vw;
+    z-index: 103;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.about-notes-navbar-left {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-notes-navbar-left i {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5f6064;
+}
+
+.about-notes-navbar-right {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.about-notes-navbar-right h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5f6064;
+}
+
+/* My About */
+.my-about {
+    padding: 3vw;
+}
+
+.my-about-left {
+    padding: 1vw;
+    margin: 3vw 0;
+}
+
+.my-about-left h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.my-about-left small {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.my-about-right {
+    padding: 1vw;
+}
+
+.my-about-right p {
+    font-size: 16px;
+}
+
+/* Other Sections */
+.other-sections {
+    padding: 2vw;
+}
+
+.other-sections-left {
+    padding: 1vw;
+    margin: 2vw 0;
+}
+
+.other-sections-left h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.other-sections-right {
+    padding: 1vw;
+}
+
+.other-sections-right img {
+    margin-right: 4vw;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000000;
+    border-radius: 50%;
+}
